@@ -27,8 +27,9 @@ if key == ord('s'):  # 如果按下 's' 键
     print(f"图像已保存为 {output_path}")
 elif key == ord('q'):  # 如果按下q键
     print("直接退出程序")
-else:
+elif key == 27:  # 如果按下 ESC 键
     print("图像未保存，程序退出")
-
+else:
+    print("未定义的按键，程序退出")
 # 5. 关闭所有窗口
 cv2.destroyAllWindows()
