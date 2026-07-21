@@ -86,7 +86,11 @@ if __name__ == "__main__":
   ifPD()
   inrange_demo()
 '''
+<<<<<<< HEAD
 总结如下
+=======
+总结
+>>>>>>> refs/remotes/origin/main
 1.对于 openCV 使用的 BGR 格式图像，返回的分拆通道的次序为 B、G、R 通道。
 2.BGR 彩色图像的数据形状为 (width, height, channels=3)，返回的 B/G/R 通道的数据形状为 (width, height)，不能按照 BGR 彩色图像直接显示。
 3.如果直接用 imshow 显示返回的单通道对象，将被视为 (width, height) 形状的灰度图像显示。
