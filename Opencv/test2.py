@@ -37,12 +37,16 @@ img[100, 150] = [255, 255, 255]  # 将 (150, 100) 位置的像素值设置为白
 print(pixel_value)
 '''
 
+#ROI(Region of Interest)感兴趣区域
+
 # 获取 ROI
 roi = img[50:150, 50:150]  # 获取 (50,50) 到 (150,150) 的区域
 # 修改 ROI
 img[50:150, 50:150] = [0, 255, 0]  # 将 ROI 区域设置为绿色
 
+
 #展示图像
+
 cv2.imshow("Display",img)
 #等待按键按下，0表示一直等待
 key = cv2.waitKey(0)
