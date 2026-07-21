@@ -69,6 +69,7 @@ def mixchannel_demo():
   cv2.waitKey(0)
   cv2.destroyAllWindows()
 #通道阈值
+#利用cv2.inRange()函数对图像进行阈值处理，将图像中在指定范围内的像素值设置为白色，其余像素值设置为黑色，并显示处理后的图像
 def inrange_demo():
   cv2.imshow('bird',img)
   #将图像转换为HSV颜色空间
@@ -84,3 +85,16 @@ def inrange_demo():
 if __name__ == "__main__":
   ifPD()
   inrange_demo()
+'''
+总结
+1.对于 openCV 使用的 BGR 格式图像，返回的分拆通道的次序为 B、G、R 通道。
+2.BGR 彩色图像的数据形状为 (width, height, channels=3)，返回的 B/G/R 通道的数据形状为 (width, height)，不能按照 BGR 彩色图像直接显示。
+3.如果直接用 imshow 显示返回的单通道对象，将被视为 (width, height) 形状的灰度图像显示。
+4.如果要正确显示某一颜色分量，需要增加另外两个通道值（置 0）转换为 BGR 三通道格式，再用 imshow 才能显示为拆分通道的颜色。
+5.cv2.split() 操作复杂耗时，可以直接使用 NumPy 切片得到分离通道。
+6.进行合并的 B、G、R 单通道图像分量，数据形状必须为 (width, height)，而不是形状为 (width, height, channels=3) 的蓝色/绿色/红色图像。
+7.单通道图像分量的图像大小 (width, height) 必须相同才能进行合并。
+8.颜色通道要按照 B、G、R 通道顺序合并，才能得到 BGR 格式的合并结果。
+9.cv2.merge() 操作复杂耗时，推荐使用 NumPy 数组合并函数 np.stack() 生成合成图像。
+ 10.OPENCV中 H、S、V 值范围分别是[0,180)，[0,255)，[0,255)。
+'''
