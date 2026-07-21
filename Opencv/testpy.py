@@ -3,8 +3,9 @@ import cv2
 
 # 1. 读取图像
 # 替换为实际的图像路径，这里是当前目录下的 "bird.jpg"
-image_path = "/Users/qw/Downloads/bird.jpg"
-image = cv2.imread(image_path)
+#image_path = "/Users/qw/Downloads/bird.jpg"
+#image = cv2.imread(image_path)
+image = cv2.imread('/Users/qw/Downloads/bird.jpg')
 
 # 检查图像是否成功读取
 if image is None:
@@ -22,7 +23,7 @@ key = cv2.waitKey(0)
 # 4. 根据用户按键执行操作
 if key == ord('s'):  # 如果按下 's' 键
     # 保存图像
-    output_path = "One bird.jpg"
+    output_path = "One bird.png"
     cv2.imwrite(output_path, image)
     print(f"图像已保存为 {output_path}")
 elif key == ord('q'):  # 如果按下q键
