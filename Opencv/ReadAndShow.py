@@ -11,26 +11,41 @@ image = cv2.imread('/Users/qw/Downloads/bird.jpg')
 if image is None:
     print("错误：无法加载图像，请检查路径是否正确。")
     exit()
+def ShowImg():
+    # 2. 显示图像
+    # 创建一个名为 "Display Image" 的窗口，并在其中显示图像
+    cv2.imshow("Let you fly", image)
 
-# 2. 显示图像
-# 创建一个名为 "Display Image" 的窗口，并在其中显示图像
-cv2.imshow("Let you fly", image)
+    # 3. 等待用户按键
+    # 参数 0 表示无限等待，直到用户按下任意键
+    key = cv2.waitKey(0)
 
-# 3. 等待用户按键
-# 参数 0 表示无限等待，直到用户按下任意键
-key = cv2.waitKey(0)
-
-# 4. 根据用户按键执行操作
-if key == ord('s'):  # 如果按下 's' 键
+    # 4. 根据用户按键执行操作
+    if key == ord('s'):  # 如果按下 's' 键
     # 保存图像
-    output_path = "One bird.png"
-    cv2.imwrite(output_path, image)
-    print(f"图像已保存为 {output_path}")
-elif key == ord('q'):  # 如果按下q键
-    print("直接退出程序")
-elif key == 27:  # 如果按下 ESC 键
-    print("图像未保存，程序退出")
-else:
-    print("未定义的按键，程序退出")
+        output_path = "One bird.png"
+        cv2.imwrite(output_path, image)
+        print(f"图像已保存为 {output_path}")
+    elif key == ord('q'):  # 如果按下q键
+        print("直接退出程序")
+    elif key == 27:  # 如果按下 ESC 键
+        print("图像未保存，程序退出")
+    else:
+        print("未定义的按键，程序退出")
 # 5. 关闭所有窗口
-cv2.destroyAllWindows()
+    cv2.destroyAllWindows()
+def ShowImg_Color():
+  img = cv2.imread('/Users/qw/Downloads/bird.jpg', cv2.IMREAD_COLOR) # BGR
+  print('IMREAD_COLOR',img)
+  cv2.imshow('cv2.IMREAD_COLOR', img)
+  cv2.waitKey(0)
+  cv2.destroyAllWindows()
+def ShowImg_GRAYSCALE():
+  img = cv2.imread('/Users/qw/Downloads/bird.jpg', cv2.IMREAD_GRAYSCALE)
+  print('IMREAD_GRAYSCALE',img)
+  cv2.imshow('cv2.IMREAD_GRAYSCALE', img)
+  cv2.waitKey(0)
+  cv2.destroyAllWindows()
+  
+if __name__ == "__main__":
+    ShowImg_GRAYSCALE()

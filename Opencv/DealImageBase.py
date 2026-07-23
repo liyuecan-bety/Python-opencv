@@ -46,7 +46,6 @@ img[50:150, 50:150] = [0, 255, 0]  # 将 ROI 区域设置为绿色
 
 
 #展示图像
-
 cv2.imshow("Display",img)
 #等待按键按下，0表示一直等待
 key = cv2.waitKey(0)
