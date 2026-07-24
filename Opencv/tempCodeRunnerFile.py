@@ -1,1 +1,0 @@
-IMREAD_COLOR
